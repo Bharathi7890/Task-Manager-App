@@ -48,5 +48,5 @@ All data is stored in **Local Storage** — no backend required.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/task-manager.git
+   git clone https://github.com/Bharathi7890/Task-Manager-App.git
    cd task-manager
