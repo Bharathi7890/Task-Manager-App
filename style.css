@@ -1,0 +1,707 @@
+/* ----------------------
+   Variables & Reset
+   ---------------------- */
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --muted: #667085;
+  --accent-from: #6c63ff;
+  --accent-to: #5a54e0;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----------------------
+   Header
+   ---------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+nav a {
+  margin-left: 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover {
+  opacity: 0.85;
+}
+
+nav a.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ----------------------
+   Progress Section
+   ---------------------- */
+#progress-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 18px;
+}
+
+#progress-section h2 {
+  margin-bottom: 8px;
+}
+
+#progress-bar-container {
+  background: #e9eefc;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 6px 0 10px;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  transition: width 0.4s ease;
+  border-radius: inherit;
+}
+
+#progress-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ----------------------
+   Main Layout (2 columns)
+   ---------------------- */
+#main-sections {
+  max-width: 1200px;
+  margin: 18px auto 60px;
+  padding: 18px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+#task-form-section,
+#quick-task-section {
+  background: var(--card);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  flex: 1 1 0%;
+}
+
+#task-form-section h2,
+#quick-task-section h2 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ----------------------
+   Add Task Form (inline)
+   ---------------------- */
+.inline-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.inline-form input[type="text"],
+.inline-form input[type="date"] {
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #e0e6f0;
+  background: #fbfdff;
+  font-size: 0.95rem;
+  flex: 1;
+  transition: all 0.2s ease;
+}
+
+.inline-form input:focus {
+  border-color: var(--accent-from);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+  outline: none;
+}
+
+/* Specific sizing */
+.inline-form input#task-title {
+  flex: 2;
+  min-width: 160px;
+}
+.inline-form input#task-start,
+.inline-form input#task-deadline {
+  flex: 1;
+  min-width: 130px;
+}
+.inline-form input#task-desc {
+  flex: 3;
+  min-width: 200px;
+}
+
+/* Add button */
+.add-btn {
+  height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  color: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(108, 99, 255, 0.25);
+}
+
+/* ----------------------
+   Quick Task List
+   ---------------------- */
+#quick-task-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+#quick-task-list li {
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: #f8f9ff;
+  border-left: 4px solid var(--accent-from);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#quick-task-list li:hover {
+  background: #f0f1ff;
+}
+
+.view-all-btn {
+  display: inline-block;
+  margin-top: 12px;
+  text-decoration: none;
+  color: var(--accent-from);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.view-all-btn:hover {
+  color: var(--accent-to);
+}
+
+/* ----------------------
+   Responsive
+   ---------------------- */
+@media (max-width: 900px) {
+  #main-sections {
+    flex-direction: column;
+  }
+
+  .inline-form {
+    flex-wrap: wrap;
+  }
+
+  .inline-form input#task-title,
+  .inline-form input#task-desc {
+    flex: 1 1 100%;
+  }
+
+  .inline-form input#task-start,
+  .inline-form input#task-deadline {
+    flex: 1 1 45%;
+  }
+
+  .add-btn {
+    flex: 1 1 100%;
+    margin-top: 8px;
+  }
+}
+
+/* Normal date button */
+#date-buttons button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #e0e4f2;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Hover */
+#date-buttons button:hover {
+  background: #f6f7ff;
+  border-color: #c6caff;
+  color: #333;
+  transform: translateY(-2px);
+}
+
+/* Selected/active date */
+#date-buttons button.active {
+  background: linear-gradient(135deg, #ff6b6b, #ff4757); /* red gradient */
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);
+}
+
+/* ===== Task Form Horizontal Style ===== */
+#task-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+#task-form .form-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 180px;
+}
+
+#task-form label {
+  font-weight: bold;
+  white-space: nowrap; /* prevent breaking */
+  color: #444;
+}
+
+#task-form input,
+#task-form textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+#task-form textarea {
+  height: 40px; /* make it look like input */
+  resize: none;
+}
+
+/* Button same height as inputs */
+#task-form button {
+  padding: 10px 18px;
+  border-radius: 6px;
+  background: #4caf50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  height: 40px;
+}
+
+#task-form button:hover {
+  background: #45a049;
+}
+
+
+/* ===== General Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f7f9fc;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ===== Header ===== */
+header {
+  background: #3976b0;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #dfffe0;
+}
+
+/* ===== Task Detail Section ===== */
+#task-detail-section {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  max-width: 800px;
+  margin: auto;
+}
+
+#task-detail-section h2 {
+  font-size: 1.6rem;
+  color: #222;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 6px;
+}
+
+#task-detail-section p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+#task-detail-section strong {
+  color: #444;
+}
+
+/* ===== Completion History ===== */
+#task-detail-section h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+#completion-history {
+  list-style: none;
+  padding: 0;
+}
+
+#completion-history li {
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  background: #f2f7f2;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: transform 0.2s;
+}
+
+#completion-history li:hover {
+  transform: translateX(5px);
+  background: #e8f5e9;
+}
+
+#filters {
+  margin: 1rem 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background: #e0e0e0;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #4a90e2;
+  color: white;
+}
+
+/* ===== Task Sections ===== */
+.task-sections {
+  margin: 1rem 2rem;
+}
+
+.task-section {
+  background: white;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.task-section h3 {
+  margin-top: 0;
+  color: #4a90e2;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* ===== Task Item ===== */
+.task-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-section li {
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: background 0.2s;
+}
+
+.task-section li.completed {
+  background: #e6ffe6;
+  text-decoration: line-through;
+  color: #555;
+}
+
+.task-section li:hover {
+  background: #f0f8ff;
+}
+
+/* ===== Task Info ===== */
+.task-section li span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.task-section li p {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* ===== Buttons in Task ===== */
+.task-section button {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  background: #8dcfe5;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.task-section button:hover {
+  background: #4a90e2;
+  color: white;
+}
+
+/* ===== About Page Styling ===== */
+.about-card {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-card h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #4a90e2;
+}
+
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.about-card h3 {
+  margin-top: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0 0;
+}
+
+.feature-list li {
+  background: #f9f9f9;
+  margin: 0.5rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.feature-list li:hover {
+  background: #f0f8ff;
+}
+
+/* ===== Help Page Styling ===== */
+.help-card {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.help-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4a90e2;
+}
+
+.steps-list {
+  padding-left: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.steps-list li {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tips-list li {
+  background: #f9f9f9;
+  margin: 0.5rem 0;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid #4a90e2;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #444;
+  transition: background 0.2s;
+}
+
+.tips-list li:hover {
+  background: #eef7ff;
+}
+
+#missed-tasks-section {
+  background: #fff3f3;
+  border: 1px solid #f5b5b5;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 2rem;
+}
+
+#missed-tasks-section h3 {
+  color: #d9534f;
+}
+
+#missed-tasks-section li {
+  background: #ffecec;
+  border: 1px solid #f5b5b5;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.missed-link-wrapper {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.reschedule-btn {
+  background: #f0ad4e;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.reschedule-btn:hover {
+  background: #ec971f;
+  color: white;
+}
+
+/* ===== Missed Tasks Link ===== */
+/* Default (missed tasks exist) */
+.missed-link {
+  display: inline-block;
+  background: #ffdddd;
+  color: #d9534f;
+  font-weight: bold;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  border: 1px solid #f5b5b5;
+}
+
+/* Hover when missed */
+.missed-link:hover {
+  background: #d9534f;
+  color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* ✅ No missed tasks */
+.missed-link.success {
+  background: #ddffdd;
+  color: #3c763d;
+  border: 1px solid #b2d8b2;
+}
+
+/* Hover when no missed */
+.missed-link.success:hover {
+  background: #3c763d;
+  color: white;
+}

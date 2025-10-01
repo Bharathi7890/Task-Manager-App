@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Analysis - Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Task Analysis</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="tasks.html">All Tasks</a>
+      <a href="about.html">About</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </header>
+
+  <section id="task-detail-section">
+    <h2 id="task-title"></h2>
+    <p><strong>Start Date:</strong> <span id="task-start"></span></p>
+    <p><strong>Deadline:</strong> <span id="task-deadline"></span></p>
+    <p><strong>Priority:</strong> <span id="task-priority"></span></p>
+
+    <h3>Completion History</h3>
+    <ul id="completion-history">
+      <!-- JS will populate completion per day -->
+    </ul>
+
+    <h3>Suggestions</h3>
+    <p id="task-suggestion"></p>
+  </section>
+
+  <script src="task-detail.js"></script>
+</body>
+</html>

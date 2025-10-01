@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Task Manager</h1>
+    <nav>
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="tasks.html">All Tasks</a>
+      <a href="about.html">About</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </header>
+
+  <!-- Missed Tasks Section -->
+  <section id="missed-tasks-section" class="task-section">
+     <div class="missed-link-wrapper">
+      <a href="missed.html" class="missed-link">❌ See Missed Tasks</a>
+    </div>
+    <ul id="missed-task-list">
+      <!-- JS will populate missed tasks here -->
+    </ul>
+   
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

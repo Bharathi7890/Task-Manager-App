@@ -1,0 +1,34 @@
+<!-- tasks.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Tasks - Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>All Tasks</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="about.html">About</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </header>
+
+  <section id="all-tasks-section">
+    <div id="filters">
+      <button data-filter="all" class="filter-btn active">All</button>
+      <button data-filter="pending" class="filter-btn">Pending</button>
+      <button data-filter="completed" class="filter-btn">Completed</button>
+    </div>
+
+    <div id="task-list" class="task-sections">
+      <!-- JS will populate all tasks -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

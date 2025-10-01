@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Task Manager</h1>
+    <nav>
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="tasks.html">All Tasks</a>
+      <a href="about.html">About</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </header>
+
+  <!-- Progress Section -->
+  <section id="progress-section">
+    <h2>Today Progress</h2>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+    <p id="progress-text">0% completed</p>
+  </section>
+
+  <!-- Task Input Form -->
+  <section id="task-form-section">
+    <h2>Add New Task</h2>
+      <form id="task-form">
+  <input type="text" id="task-title" placeholder="Enter task title" required>
+  
+  <label for="task-start">Start Date:</label>
+  <input type="date" id="task-start">
+  
+  <label for="task-deadline">Deadline:</label>
+  <input type="date" id="task-deadline">
+  
+  <label for="task-desc">Description:</label>
+  <textarea id="task-desc" placeholder="Enter task description"></textarea>
+  
+  <button type="submit">Add Task</button>
+</form>
+  </section>
+
+
+  <!-- Quick Task Preview -->
+
+
+
+<!-- Quick Task Preview -->
+<section id="quick-task-section">
+  <h2>Today’s Tasks</h2>
+
+  <!-- Next 10 days -->
+  <div id="date-buttons">
+    <!-- JS will populate next 10 days buttons -->
+  </div>
+
+  <ul id="quick-task-list">
+    <!-- Tasks for selected date -->
+  </ul>
+  <a href="tasks.html" class="view-all-btn">View All Tasks →</a>
+</section>
+
+ <section id="missed-tasks-section" class="task-section">
+  <a href="missed.html" class="missed-link">❌ See Missed Tasks</a>
+</section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
